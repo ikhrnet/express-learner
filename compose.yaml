@@ -1,9 +1,23 @@
+version: "3.8"
+
+name: express
+
 services:
   express:
-    image: express
     build:
       context: .
+      dockerfile: Dockerfile
     container_name: express
+    image: express
+    networks:
+      default: null
     ports:
-      - "3000:3000"
+      - mode: ingress
+        target: 3000
+        published: "3000"
+        protocol: tcp
     tty: true
+
+networks:
+  default:
+    name: express
