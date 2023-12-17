@@ -1,0 +1,9 @@
+services:
+  express:
+    image: express
+    build:
+      context: .
+    container_name: express
+    ports:
+      - "3000:3000"
+    tty: true
